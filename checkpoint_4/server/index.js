@@ -17,8 +17,9 @@ app.use(bodyParser.urlencoded({
 
 app.use('/categorie', route.categorie);
 app.use('/articles', route.articles)
-app.use('./stock', route.stock)
+app.use('/stock', route.stock)
 
+// connection to DB
 connection.connect(function(err) {
   if (err) {
     return console.error('error: ' + err.message);

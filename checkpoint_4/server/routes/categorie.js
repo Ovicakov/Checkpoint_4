@@ -33,5 +33,24 @@ router.route(['/:id', '/'])
       }
     });
   })
+  .put(function (req, res) {
+    const formData = req.body;
+    connection.query(`UPDATE categorie SET ? WHERE cat_id=${req.params.id}`, [formData], err => {
+      if (err) {
+        res.status(500).send("Erreur lors de la modification d'une catégorie");
+      } else {
+        res.sendStatus(200);
+      }
+    });
+  })
+  .delete(function (req, res) {
+    connection.query(`DELETE FROM categorie WHERE cat_id=${req.params.id}`, err => {
+      if (err) {
+        res.status(500).send("Erreur lors de la suppression d'une catégorie");
+      } else {
+        res.sendStatus(200);
+      }
+    });
+  });
 
 module.exports = router;

@@ -1,0 +1,9 @@
+.formAdmin {
+  width: 40%;
+}
+
+.containerForm {
+  display: flex;
+  justify-content: center;
+  margin-top: 8em;
+}

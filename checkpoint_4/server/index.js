@@ -5,7 +5,9 @@ const connection = require('./config');
 const route = require('./routes/index');
 const bodyParser = require('body-parser');
 const morgan = require('morgan')
+const cors = require('cors')
 
+app.use(cors())
 // // morgan error support
 app.use(morgan('dev'))
 // Support JSON-encoded bodies
@@ -18,14 +20,9 @@ app.use(bodyParser.urlencoded({
 app.use('/categorie', route.categorie);
 app.use('/articles', route.articles)
 app.use('/stock', route.stock)
-
-// connection to DB
-connection.connect(function(err) {
-  if (err) {
-    return console.error('error: ' + err.message);
-  }
-  console.log('Connected to the MySQL server.');
-});
+app.use('/user', route.user)
+app.use('authentification', route.authentification)
+app.use('/register', route.register)
 
 app.listen(port, (err) => {
   if (err) {

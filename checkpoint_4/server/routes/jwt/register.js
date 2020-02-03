@@ -45,7 +45,7 @@ router.route(['/', '/'])
        * Insertion de l'utilisateur en base
        */
 
-      connection.query('insert into user set ?', req.body, (err, result) => {
+      connection.query('insert into user set ?', user, (err, result) => {
         if (err) {
           console.log('err 50',err);
           return res.status(500).send('Cannot register the user')

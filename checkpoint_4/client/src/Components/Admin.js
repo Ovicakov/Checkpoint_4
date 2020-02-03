@@ -21,10 +21,10 @@ const Admin = () => {
   const submitForm = (e) => {
     e.preventDefault()
 
-    axios.post('http://localhost:4000/register', {
+    axios.post('http://localhost:4000/authentification', {
       user_email: state.user_email,
       user_password: state.user_password
-    }).then(console.log('good'))
+    }).then(res => localStorage.setItem('cool-jwt', res.data));
   }
 
   return (

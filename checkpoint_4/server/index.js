@@ -7,9 +7,9 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan')
 const cors = require('cors')
 
-app.use(cors())
+app.use(cors());
 // // morgan error support
-app.use(morgan('dev'))
+app.use(morgan('dev'));
 // Support JSON-encoded bodies
 app.use(bodyParser.json());
 // Support URL-encoded bodies
@@ -21,7 +21,7 @@ app.use('/categorie', route.categorie);
 app.use('/articles', route.articles)
 app.use('/stock', route.stock)
 app.use('/user', route.user)
-app.use('authentification', route.authentification)
+app.use('/authentification', route.authentification)
 app.use('/register', route.register)
 
 app.listen(port, (err) => {

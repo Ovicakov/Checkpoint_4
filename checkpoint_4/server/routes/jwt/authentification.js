@@ -5,8 +5,7 @@ const connection = require('../../config')
 
 const router = express.Router()
 
-const secret = 'ZizouZEstTropFort'
-
+const secret = 'ZizouEstTropFort'
 
 /**
  * Route post d'authentification
@@ -35,8 +34,8 @@ router.post('/', (req, res)=>{
   connection.query(`SELECT * FROM user WHERE user_email = ?`, user_email, (err, result)=>{
     if (err) {
       return res.status(500).send(err)
-    } else if (!result[0]){ // on verifie la presnec d'un resultat dans la reponse
-      return res.status(409).send('Unknown user') // si pas de resultat l'email n'est pas enregistre en base donc l'utilisateur est inconnu
+    } else if (!result[0]){ // on verifie la présence d'un resultat dans la reponse
+      return res.status(409).send('Unknown user')
     }
 
     /**

@@ -1,11 +1,22 @@
 import React, { useState } from 'react'
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import axios from 'axios'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+  useLocation
+} from "react-router-dom";
 
 // CSS
 import './Admin.css'
 
-const Admin = () => {
+const Admin = (props) => {
+
+  let history = useHistory()
 
   const [state, setState] = useState({
     user_email: '',
@@ -18,17 +29,24 @@ const Admin = () => {
     })
   }
 
-  const submitForm = (e) => {
-    e.preventDefault()
-
-    axios.post('http://localhost:4000/authentification', {
+  const handleSubmit = (e) => {
+    axios.post("http://localhost:4000/authentification", {
       user_email: state.user_email,
       user_password: state.user_password
-    }).then(res => localStorage.setItem('cool-jwt', res.data));
+    })
+      .then(res => {
+        localStorage.setItem('jwt-token', res.headers.token) // requireAuth et notNoth
+        alert(`Vous êtes connecté sous le compte admin : ${state.user_email} !`)
+        document.location.reload(true);
+      })
+      .catch(err => {
+        if (err = 401) {
+          alert(`Aucun compte ne correspond`)
+        }
+      });
   }
 
   return (
-
     <div className="containerForm">
       <Form className="formAdmin">
         <FormGroup>
@@ -51,7 +69,7 @@ const Admin = () => {
             onChange={handleChange}
             value={state.user_password} />
         </FormGroup>
-        <Button type="button" onClick={e => submitForm(e)}>Envoyer</Button>
+        <Button type="button" onClick={e => handleSubmit(e)}>Envoyer</Button>
       </Form>
     </div>
   )

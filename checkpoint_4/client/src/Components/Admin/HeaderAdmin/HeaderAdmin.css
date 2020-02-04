@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Nunito&display=swap');
+
+.headerAdminContainer {
+  display:flex;
+  width: 100%;
+  background-color: #1d1d1b;
+  position: fixed;
+  position: relative;
+  height: 13vh;
+}
+
+.headerAdmin {
+  list-style-type: none;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-weight: 800;
+  font-size: 1.5em;
+  font-family: 'Inconsolata';
+}
+
+.accueilAdmin, .boutiqueAdmin {
+  color:white;
+  padding: 43px 60px;
+  margin: 0 2em;
+  text-decoration: none;
+}
+
+.accueilAdmin:hover, .boutiqueAdmin:hover {
+  background-color: white;
+  color: #1d1d1b;
+  border: none;
+}
+
+
+/* _________________ MEDIA QUERIES _________________
+
+  @media screen and (max-width: 500px){
+    nav a{
+      display: block;
+    }
+    nav .navigation > li{
+      display: inline;
+    }
+  
+    label {
+      display: block;
+      font-size: 30px;
+    text-align: center;
+      cursor: pointer;
+      width: 100%;
+      margin: 0 auto;
+      color: #FFFFFF;
+      background: black;
+    }
+    .navigation {
+      text-align: center;
+    }
+    .navigation{
+      display: none;
+    }
+    #nav-toggle:checked + .navigation{
+      display: block;
+    }
+  } */

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom";
-import { getJwt } from '../helpers/jwt'
+import { getJwt } from '../../helpers/jwt'
 import axios from 'axios'
 
 export default function AuthenticatedComponent(props) {

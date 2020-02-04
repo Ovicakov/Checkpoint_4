@@ -6,10 +6,11 @@ import { Button, Carousel, CarouselItem, CarouselControl, CarouselIndicators, Ca
 import './Home.css'
 
 // images
-import img1 from '../images/circus1.jpg'
-import img2 from '../images/1.png'
-import img3 from '../images/2.png'
-import img4 from '../images/3.png'
+import img1 from '../../images/circus1.jpg'
+import img2 from '../../images/1.png'
+import img3 from '../../images/2.png'
+import img4 from '../../images/3.png'
+import Header from './Header';
 
 export default function Home() {
 
@@ -67,7 +68,7 @@ export default function Home() {
 
   return (
     <div className="homeContainer">
-
+      <Header />
       {/* _____________PART 1  _____________ */}
 
       <div className="part1">
@@ -98,7 +99,7 @@ export default function Home() {
           <Button color="success">Se connecter en tant qu'administrateur</Button>
         </div>
       </div>
-      
+
     </div>
   )
 }

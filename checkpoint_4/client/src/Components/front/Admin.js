@@ -3,13 +3,9 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import axios from 'axios'
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
   useHistory,
-  useLocation
 } from "react-router-dom";
+import Header from './Header'
 
 // CSS
 import './Admin.css'
@@ -35,7 +31,7 @@ const Admin = (props) => {
       user_password: state.user_password
     })
       .then(res => {
-        localStorage.setItem('jwt-token', res.headers.token) // requireAuth et notNoth
+        localStorage.setItem('jwt-token', res.headers.token) // requireAuth et notAuth
         alert(`Vous êtes connecté sous le compte admin : ${state.user_email} !`)
         document.location.reload(true);
       })
@@ -48,6 +44,7 @@ const Admin = (props) => {
 
   return (
     <div className="containerForm">
+      <Header />
       <Form className="formAdmin">
         <FormGroup>
           <Label for="exampleEmail">Email</Label>

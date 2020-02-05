@@ -8,6 +8,12 @@ export default function Cards() {
 
   const [article, setArticle] = useState([])
   const [categorie, setCategorie] = useState([])
+  const [artByCat, setArtByCat] = useState([])
+
+  const articleByCat = (e) => {    
+    axios.get(`http://localhost:4000/articles/getCatId/${e.target.value}`)
+    .then(res => setArtByCat(res.data))
+  }
 
   useEffect(() => {
     axios.get('http://localhost:4000/articles')
@@ -15,19 +21,24 @@ export default function Cards() {
 
     axios.get('http://localhost:4000/categorie')
       .then(res => setCategorie(res.data))
-
   }, [])
 
   return (
     <>
-      <select>
-        {categorie.map((categorie) =>
-          <option>{categorie.cat_name}</option>)}
-      </select>
+      <div className="cardsContainer">
+        <p>Choisissez votre catégorie :</p>
+        <select className="selectCards" onChange={(e) => articleByCat(e)}>
+          {categorie && categorie.map((categorie) =>
+            <option value={categorie.cat_id}>{categorie.cat_name}</option>
+          )}
+        </select>
+      </div>
 
-      <div>
-        {article.map(article => (
+      <div className="row mx-auto">
+        {article && artByCat.map(article => (
           <CardsForm
+            key={article.art_id}
+            value={article.art_id}
             name={article.art_name}
             photo={article.art_photo}
             description={article.art_description}

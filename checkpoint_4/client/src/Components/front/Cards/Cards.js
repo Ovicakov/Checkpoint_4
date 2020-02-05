@@ -10,9 +10,9 @@ export default function Cards() {
   const [categorie, setCategorie] = useState([])
   const [artByCat, setArtByCat] = useState([])
 
-  const articleByCat = (e) => {    
+  const articleByCat = (e) => {
     axios.get(`http://localhost:4000/articles/getCatId/${e.target.value}`)
-    .then(res => setArtByCat(res.data))
+      .then(res => setArticle(res.data))
   }
 
   useEffect(() => {
@@ -21,6 +21,7 @@ export default function Cards() {
 
     axios.get('http://localhost:4000/categorie')
       .then(res => setCategorie(res.data))
+
   }, [])
 
   return (
@@ -35,7 +36,7 @@ export default function Cards() {
       </div>
 
       <div className="row mx-auto">
-        {article && artByCat.map(article => (
+        {article && article.map(article => (
           <CardsForm
             key={article.art_id}
             value={article.art_id}

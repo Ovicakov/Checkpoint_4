@@ -29,6 +29,7 @@ export default function Cards() {
       <div className="cardsContainer">
         <p>Choisissez votre catégorie :</p>
         <select className="selectCards" onChange={(e) => articleByCat(e)}>
+          <option>Choisissez votre catégorie</option>
           {categorie && categorie.map((categorie) =>
             <option value={categorie.cat_id}>{categorie.cat_name}</option>
           )}

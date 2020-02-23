@@ -28,7 +28,6 @@ router.route(['/:id', '/'])
     connection.query(`SELECT * FROM article WHERE art_id=${req.params.id}`, (err, results) => {
       if (err) {
         console.log(err);
-
         res.status(500).send("Erreur lors de la récupération d'un article");
       } else {
         res.json(results).status(200);
@@ -40,7 +39,6 @@ router.route(['/:id', '/'])
     connection.query('INSERT INTO article SET ?', formData, (err, results) => {
       if (err) {
         console.log('ERREUR', err);
-
         res.status(500).send("Erreur lors de l'ajout d'un article");
       } else {
         res.sendStatus(200);

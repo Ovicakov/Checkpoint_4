@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import HeaderAdmin from '../HeaderAdmin/HeaderAdmin'
+import Header from '../../front/Header'
 import axios from 'axios'
 
 export default function BoutiqueAdmin() {
@@ -38,7 +39,7 @@ export default function BoutiqueAdmin() {
       ...state, [e.target.name]: e.target.value,
     })
     console.log(state.art_cat_id);
-    
+
   }
 
   useEffect(() => {
@@ -48,7 +49,8 @@ export default function BoutiqueAdmin() {
 
   return (
     <>
-      <HeaderAdmin />
+      {/* <HeaderAdmin /> */}
+      <Header />
       <div className="admin-container">
 
         <div className="titrePageBoutiqueAdmin">
